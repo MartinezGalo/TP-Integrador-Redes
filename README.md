@@ -32,5 +32,5 @@ Se incluyeron scripts para verificar la programabilidad de la red desde la conso
 2.  **API Server:** Asegurarse de que el servicio del Network Controller esté activo dentro de la simulación.
 3.  **Python:**
     * Navegar a la carpeta `Scripts`.
-    * Instalar dependencias (si aplica) o usar el entorno de Packet Tracer.
+    * Instalar dependencias.
     * Ejecutar: Ejecutar los scripts.
