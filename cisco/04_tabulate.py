@@ -32,9 +32,12 @@ print("\nDispositivos de Red:")
 host_list=[]
 i=0
 for item in result["response"]:
-    i+=1
-    host_list.append([i,item["hostname"],item["serialNumber"],item["softwareVersion"]])
-    #print(item["hostname"]+" "+item["serialNumber"]+" "+item["softwareVersion"]) #Lista completa
+    i += 1
+    # Verificar existencia de hostname antes de usarlo
+    hostname = item.get("hostname")
+    if hostname:
+        host_list.append([i, hostname, item.get("serialNumber", "N/A"), item.get("softwareVersion", "N/A")])
+    #print(hostname+" "+item.get("serialNumber","N/A")+" "+item.get("softwareVersion","N/A")) #Lista completa
 
 print(tabulate(host_list,headers=["Hostname","Serial Number","Software Version"],tablefmt='rst')) #Tabla ordenada 
 

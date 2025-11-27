@@ -2,7 +2,7 @@ import json
 import requests
 api_url = "http://localhost:58000/api/v1/network-device"
 
-headers={"X-Auth-Token": "NC-2-8dab22e0d78f4e8ab6d3-nbi"}
+headers={"X-Auth-Token": "NC-10-cd4d8320fa6941268742-nbi"}
 
 resp = requests.get(api_url, headers=headers)
 
@@ -17,4 +17,7 @@ print()
 networkDevices = response_json["response"]
 
 for networkDevice in networkDevices:
-    print(networkDevice["hostname"], "\t", networkDevice["platformId"], "\t", networkDevice["managementIpAddress"])
+    hostname = networkDevice.get("hostname")
+    if hostname:
+        print(hostname, "\t", networkDevice.get("platformId"), "\t", networkDevice.get("managementIpAddress"))
+
